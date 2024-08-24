@@ -1,13 +1,20 @@
 package main
 
+import "fmt"
+
 func main() {
 	var a, b int
 	a = 12
 	b = 25
 
+	// var c byte = 0x0F
+	// fmt.Printf(`%08b`, c)
+	fmt.Printf(`%08b\n`, b)
+	fmt.Printf(`%08b`, 24)
+
 	println(b)
 	//here we can test our bitwise operators.
-
+	println(b & 1)
 	println(bitwiseComplement(a))
 
 }
@@ -51,4 +58,16 @@ func bitwiseRightShift(a int, n int) int {
 	// Right shift by N.
 	// ! right shift turns unsigned int into signed int.
 	return a >> n
+}
+
+// Left shift operator shifts all bits towards left by certain number of specified bits.
+func bitwiseLeft(a int, n int) int {
+	return a << n
+}
+
+func upperToLower(c byte) byte {
+	mask := ' '
+	//Single quotes are used to represent a single character or a byte.
+	// In Go, this is treated as a rune (which is an alias for int32) but can be used as a byte (uint8).
+	return c | byte(mask)
 }

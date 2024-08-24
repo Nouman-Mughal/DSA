@@ -1,0 +1,41 @@
+---> The left-shift and right-shift operators are equivalent to multiplication and division by 2 respectively.
+
+-> The & operator can be used to quickly check if a number is odd or even.
+---> The value of expression (x & 1) would be non-zero only if x is odd, otherwise the value would be zero.
+
+-> setting a particular bit in a number.
+--> First we left shift ‘1’ to n position via (1<<n). Then, use ‘OR’ operator to set bit at that position.
+’OR’ operator is used because it will set the bit even if the bit is unset previously in binary representation of number ‘num’.
+
+-> to unset/clear a bit at n’th position in a number:
+---> First we left shift ‘1’ to n position via (1<<n) than we use bitwise NOT operator ‘~’ to unset this shifted ‘1’.
+--------> Now after clearing this left shifted ‘1’ i.e making it to ‘0’ we will ‘AND’(&) with the number ‘num’ that will unset bit at nth position position.
+
+
+-> toggling a bit at nth position.
+--->  Toggling means to turn bit ‘on’(1) if it was ‘off’(0) and to turn ‘off’(0) if it was ‘on’(1) previously.
+We will be using ‘XOR’ operator here which is this ‘^’. Process is same as above approach of shifting 1 by n bits and then xor operation with the number.
+
+
+-> Checking if bit at nth position is set or unset:
+-----> It is quite easily doable using ‘AND’ operator. Left shift ‘1’ to given position and then ‘AND’(‘&’).
+
+-> stripping off the lowest set bit:
+-----> In many situations we want to strip off the lowest set bit for example in Binary Indexed tree data structure,
+         counting number of set bit in a number.
+
+-> getting a lowest set bit:
+---> This is done by using expression ‘X &(-X)’Let us see this by taking an example: Let X = 00101100.
+  So ~X(1’s complement) will be ‘11010011’ and 2’s complement will be (~X+1 or -X) i.e ‘11010100’.
+  So if we ‘AND’ original number ‘X’ with its two’s complement which is ‘-X’, we get lowest set bit.
+
+
+-> upper case english alphabet to lower case.
+---> ch = " ";
+------> We have to prepare a mask having 5th bit 1 and other 0 (00100000).
+--------> This mask is bit representation of space character (‘ ‘). The character ‘ch’ then ORed with mask.
+
+
+-> lower case english alphabet to upper case.
+---> ch &= ‘_’ ;
+------> The bit representation of upper case and lower case English alphabets are –
