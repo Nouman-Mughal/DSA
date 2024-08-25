@@ -65,9 +65,45 @@ func bitwiseLeft(a int, n int) int {
 	return a << n
 }
 
-func upperToLower(c byte) byte {
+func upperToLower(c byte) byte { // set the 5th bit.
 	mask := ' '
 	//Single quotes are used to represent a single character or a byte.
 	// In Go, this is treated as a rune (which is an alias for int32) but can be used as a byte (uint8).
-	return c | byte(mask)
+	c |= byte(mask)
+	return c
 }
+
+func lowerToUpper(c byte) byte {
+	mask := '_'
+	c &= byte(mask)
+	return c
+}
+
+// countOnes uses Brian Kernighan's algorithm to count the number of 1s in the binary representation with O(length of set bits in number)
+func countOnes(n int) int {
+	count := 0
+	for n > 0 {
+		n = n & (n - 1) // Clear the rightmost set bit untill we get 0.
+		count++
+	}
+	return count
+}
+
+// Here is the example:
+// Consider the number 13 (binary 1101):
+
+// Initial Number: 1101
+// First Operation: 1101 & (1101 - 1) → 1101 & 1100 → 1100 (Count = 1)
+// Second Operation: 1100 & (1100 - 1) → 1100 & 1011 → 1000 (Count = 2)
+// Third Operation: 1000 & (1000 - 1) → 1000 & 0111 → 0000 (Count = 3)
+
+func isPowerof2(x int) bool {
+	// && expects boolean values. and Not with integers.
+	return (x > 0 && (x&(x-1)) == 0)
+}
+
+/*
+ All the power of 2 have only single bit set e.g. 16 (00010000). If we minus 1 from this, all the bits from LSB
+ to set bit get toggled, i.e., 16–1 = 15 (00001111). Now if we AND x with (x-1) and
+ the result is 0 then we can say that x is power of 2 otherwise not. We have to take extra care when x = 0.
+*/

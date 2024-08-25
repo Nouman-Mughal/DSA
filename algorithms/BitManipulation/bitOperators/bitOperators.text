@@ -38,4 +38,4 @@ We will be using ‘XOR’ operator here which is this ‘^’. Process is same 
 
 -> lower case english alphabet to upper case.
 ---> ch &= ‘_’ ;
-------> The bit representation of upper case and lower case English alphabets are –
+------> The bit representation of upper case and lower case English alphabets are –.

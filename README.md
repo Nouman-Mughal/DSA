@@ -1,1 +1,1 @@
-A repo for practicing data structures and algorthims.
+A repo for practicing and learning data structures and algorthims using Golang and Javascript.

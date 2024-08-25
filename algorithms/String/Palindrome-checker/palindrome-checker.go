@@ -6,6 +6,9 @@ func main() {
 	fmt.Println(isPermutationPalindrome("Tact Coa"))
 }
 
+// string length could be odd or even.
+// In a palindrome string with even length, every character must appear an even number of times.
+// In a palindrome with an odd length, all but one character must appear an even number of times, with one character allowed to have an odd count.
 func isPermutationPalindrome(s string) bool {
 	var bitVector int32
 	// small alphabet letters have large value compared to capital alphabet letters.
