@@ -2,10 +2,10 @@
 package main
 
 func main() {
-	println(hasDuplicates("hello"))                       // true
-	println(hasDuplicates("world"))                       // false
-	println(hasDuplicates("abcdefghijklmnopqrstuvwxyz"))  // false
-	println(hasDuplicates("abcdefghijklmnopqrstuvwxyza")) // true
+	println(hasDuplicates("hello"))                      // true
+	println(hasDuplicates("world"))                      // false
+	println(hasDuplicates("abcdefghijklmnopqrstuvwxyz")) // false
+	println(hasDups("abcdefghijklmnopqrstuvwxyza"))      // true
 
 }
 
@@ -63,4 +63,24 @@ func hasDuplicates(s string) bool {
 		checker |= mask
 	}
 	return false
+}
+
+// this algorithm will work too if string contains only ASCII chars.
+func hasDups(s string) bool {
+	var checker int
+	checker = 0
+	if len(s) > 128 {
+		return true
+	}
+	for i := 0; i < len(s); i++ {
+		val := s[i] - 'a'
+		mask := 1 << val
+
+		if checker&mask > 0 {
+			return true
+		}
+		checker |= mask
+	}
+	return false
+
 }
