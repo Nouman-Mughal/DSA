@@ -1,10 +1,12 @@
-package main
+package palindromechecker
 
 import "fmt"
 
 func main() {
 	fmt.Println(isPermutationPalindrome("Tact Coa"))
 }
+
+// this only checks if string can be re arranged into palindrome.
 
 // string length could be odd or even.
 // In a palindrome string with even length, every character must appear an even number of times.
@@ -34,3 +36,4 @@ func isPermutationPalindrome(s string) bool {
 func hasOnlyOneBitSet(n int32) bool {
 	return n&(n-1) == 0
 }
+
